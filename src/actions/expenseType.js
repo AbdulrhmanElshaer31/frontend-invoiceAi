@@ -1,3 +1,5 @@
+"use server"
+
 //This File Contain All CRUDS Functions for expense-Type
 import { getSession } from "./session";
 import { URLSearchParams } from "next/dist/compiled/@edge-runtime/primitives/url";

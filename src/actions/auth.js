@@ -30,7 +30,7 @@ export async function Login(email, password) {
         messages: ["Login failed. Please check your credentials."]
       };
     }
-    setSession(result.data);
+    setSession(result.data)
     // Return success response
     return {
       data: result.data,
@@ -150,7 +150,7 @@ export  async function SignUp(payload) {
 
   if(!request.ok) {
     return{
-      success:true,
+      success:false,
       message: response.messages  || ["Falied To Create Account!"]
     }
   }

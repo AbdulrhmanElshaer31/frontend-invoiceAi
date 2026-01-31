@@ -1,5 +1,5 @@
+"use server"
 //This File Contain All CRUDS Functions for api-key
-import { URLSearchParams } from "next/dist/compiled/@edge-runtime/primitives/url";
 import { getSession } from "./session";
 
 // create Api Key function 

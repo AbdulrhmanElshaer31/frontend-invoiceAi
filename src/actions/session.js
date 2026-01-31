@@ -12,6 +12,8 @@ export  async function setSession(payload) {
     maxAge: 7 * 24 * 60 * 60, // 7 days
     path: "/",
   });
+  console.log(sessionData);
+  
 }
 // get User Auth in coockies
 export async function getSession() {

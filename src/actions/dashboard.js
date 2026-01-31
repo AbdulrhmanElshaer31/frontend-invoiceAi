@@ -1,3 +1,5 @@
+"use server"
+
 import { getSession } from "./session";
 //get dashboard data 
 export default async function Dashboard() {

@@ -1,3 +1,5 @@
+"use server"
+
 //This File Containes The CRUDS opreations for invoices
 import { getSession } from "./session";
 // upload invoice
