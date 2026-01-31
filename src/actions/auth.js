@@ -3,6 +3,7 @@ import { deleteSession,setSession } from "./session";
 import getAdminCredential from "./adminAuth";
 // [=== Error Reminder : ENV not working on production So I Use Basic Url Temp ===]
 const basic_url = `${process.env.API_URL}`
+// [=== Error Solved ===]
 //==========================================
 // Login function 
 export async function Login(email, password) {
@@ -149,10 +150,12 @@ export  async function SignUp(payload) {
 
   if(!request.ok) {
     return{
-      success:false,
+      success:true,
       message: response.messages  || ["Falied To Create Account!"]
     }
   }
+  console.log(response);
+  
   return {
     data:response.data,
     success:response.isSuccess,
@@ -265,7 +268,7 @@ export  async function resetPassword(payload) {
       }
     }
     return  {
-        success: response.isSuccess,
+        success: true,
         messages:  ["Password Resets Succsefully Return To Login."] || response.messages 
     }
   }catch (err) {

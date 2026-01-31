@@ -2,7 +2,7 @@
 
 //Get Admin Auth
 export default async function getAdminCredential() {
-  const loginUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/Account/Login`;
+  const loginUrl = `${process.env.API_URL}/api/v1/Account/Login`;
   const Credential = btoa(`${process.env.API_USERNAME}:${process.env.API_PASSWORD}`);
   try {
     const response = await fetch(loginUrl,{

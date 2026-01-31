@@ -4,7 +4,7 @@ export default function Home() {
     <>
     <div className="w-full h-screen flex items-center justify-center">
 
-
+      <div>Welcome To Home</div>
     </div>
     </>
   );
