@@ -326,6 +326,26 @@ export default function ApiKeyPage() {
                   </div>
                 </div>
 
+                {/* Key Name */}
+                <div className="mb-4 p-3 bg-gray-50 rounded-lg border border-gray-100">
+                  <p className="text-xs text-gray-500 font-semibold mb-1 uppercase tracking-wider">Key</p>
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-xs text-gray-900 font-mono truncate">
+                      {apiKey.key}
+                    </p>
+                    <button
+                      onClick={() => copyToClipboard(apiKey.id, apiKey.id)}
+                      className="text-gray-400 hover:text-gray-900 transition-colors shrink-0"
+                      title="Copy Key ID"
+                    >
+                      {copiedId === apiKey.id ? (
+                        <Check className="w-4 h-4 text-emerald-600" />
+                      ) : (
+                        <Copy className="w-4 h-4" />
+                      )}
+                    </button>
+                  </div>
+                </div>
                 {/* Key ID */}
                 <div className="mb-4 p-3 bg-gray-50 rounded-lg border border-gray-100">
                   <p className="text-xs text-gray-500 font-semibold mb-1 uppercase tracking-wider">Key ID</p>
