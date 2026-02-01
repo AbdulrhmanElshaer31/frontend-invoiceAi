@@ -13,7 +13,7 @@ export default async function Dashboard() {
         }
         })
         const response = await request.json();
-        if(!response.ok) {
+        if(!request.ok) {
             return{
                 message:"failed to load Dashboard Data",
                 isSuccess : false,

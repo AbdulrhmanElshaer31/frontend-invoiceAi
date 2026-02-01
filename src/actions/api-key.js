@@ -15,19 +15,19 @@ import { getSession } from "./session";
             },
             body:JSON.stringify({
                 "key" : name,
-                "isRevoked" : true
+                "isRevoked" : false
             })
         })
 
         const response = await request.json();
         if(!request.ok) {
             return {
-                message : response.messages[0] || "can't create api-key!",
+                message: "can't create api-key!" || response.messages[0],
                 isSuccess : false
             }
         }
         return {
-            message : response.messages[0] || "api-key Created",
+            message :"api-key Created!" || response.messages[0]  ,
             isSuccess : true
         }
     }catch(err){
@@ -143,22 +143,24 @@ export async function editApiKey(id,key,isRevoked) {
 export async function deletApiKey(apiKeyId) {
     const userAuth = await getSession();
     try {
-        const request = await fetch(`${process.env.API_URL}/api/v1/clients/${userAuth.clientId}/keys/${{apiKeyId}}`,{
+        const request = await fetch(`${process.env.API_URL}/api/v1/clients/${userAuth.clientId}/keys/${apiKeyId}`,{
             method:"DELETE",
             headers: {
+                "X-USER-KEY" : userAuth.userKey,
                 "X-API-KEY" : userAuth.clientKey,
-                "X-USER-KEY" : userAuth.userKey
             }
         })
         const response = await request.json();
+        console.log(response);
+        
         if(!request.ok) {
             return{
-            message: response.messages[0] || "Failed To Delete Api Key, Try Again",
+            message: response.messages || "Failed To Delete Api Key, Try Again",
             isSuccess:false
             }
         }
         return{
-            message: response.messages[0] || "Api Key Deleted!",
+            message: response.messages || "Api Key Deleted!",
             isSuccess: true
         }
     }catch(err) {
@@ -183,12 +185,12 @@ export async function restoreApiKey(apiKeyId) {
         const response = await request.json();
         if(!request.ok) {
             return{
-            message: response.messages[0] || "Can't Restore api-key Try Again!",
+            message: response.messages || "Can't Restore api-key Try Again!",
             isSuccess:false
             }
         }
         return {
-            message:response.messages[0] || "Restored Successeful",
+            message:response.messages || "Restored Successeful",
             isSuccess: true
         }
     }catch(err) {
