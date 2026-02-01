@@ -334,11 +334,11 @@ export default function ApiKeyPage() {
                       {apiKey.key}
                     </p>
                     <button
-                      onClick={() => copyToClipboard(apiKey.id, apiKey.id)}
+                      onClick={() => copyToClipboard(apiKey.key, apiKey.key)}
                       className="text-gray-400 hover:text-gray-900 transition-colors shrink-0"
                       title="Copy Key ID"
                     >
-                      {copiedId === apiKey.id ? (
+                      {copiedId === apiKey.key ? (
                         <Check className="w-4 h-4 text-emerald-600" />
                       ) : (
                         <Copy className="w-4 h-4" />
