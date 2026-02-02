@@ -24,12 +24,12 @@ import { getSession } from "./session";
         const response = await request.json();
         if(!request.ok) {
             return {
-                message : response.messages[0],
+                message : "Error While Createing Cost-Center Trey Again later" || response.messages[0],
                 isSuccess : false
             }
         }
         return {
-            message : response.messages[0],
+            message : "Cost Center Created!" || response.messages[0],
             isSuccess : true
         }
     }catch(err){

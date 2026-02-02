@@ -1,6 +1,7 @@
 "use server";
 import { deleteSession,setSession } from "./session";
 import getAdminCredential from "./adminAuth";
+import { redirect } from "next/dist/server/api-utils";
 // [=== Error Reminder : ENV not working on production So I Use Basic Url Temp ===]
 const basic_url = `${process.env.API_URL}`
 // [=== Error Solved ===]
@@ -286,4 +287,5 @@ export  async function resetPassword(payload) {
 //Logut Function 
 export  async function Logout() {
   await deleteSession();
+  redirect('/login');
 }

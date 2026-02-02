@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Logout } from "@/actions/auth";
 import {
   Home,
   LayoutDashboard,
@@ -145,7 +146,9 @@ export default function Sidebar() {
           </div>
 
           {/* Logout Button */}
-          <button className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-red-50 hover:text-red-600 transition-all duration-200 group">
+          <button
+            onClick={async () => await Logout()}
+            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 hover:bg-red-50 hover:text-red-600 transition-all duration-200 group">
             <LogOut
               size={18}
               className="shrink-0 group-hover:scale-105 transition-transform"
