@@ -14,7 +14,8 @@ import {
   LogOut,
   Menu,
   X,
-  FileChartColumnIncreasing
+  FileChartColumnIncreasing,
+  FileSpreadsheet
 } from "lucide-react";
 
 export default function Sidebar() {
@@ -24,7 +25,8 @@ export default function Sidebar() {
   const menuItems = [
     { name: "Home", icon: Home, path: "/home" },
     { name: "Dashboard", icon: LayoutDashboard, path: "/dashboard" },
-    {name: "Invoices" , icon:FileChartColumnIncreasing , path: "/invoices"},
+    { name: "Invoices", icon: FileChartColumnIncreasing, path: "/invoices" },
+    {name : "Invoice Generator" , icon: FileSpreadsheet , path: "/invoice-generator"},
     { name: "Cost Center", icon: Building2, path: "/cost-center" },
     { name: "Expense Type", icon: DollarSign, path: "/expense-type" },
     { name: "Api Key", icon: Key, path: "/api-key" },
